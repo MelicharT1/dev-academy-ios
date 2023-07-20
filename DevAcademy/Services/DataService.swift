@@ -19,13 +19,13 @@ final class DataService {
     
     private init() {}
     
-    func fetchData(closure: @escaping (Result<Features, Error>) -> ()) throws {
-        Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { [weak self] _ in
-            if let data = self?.data {
-                closure(data)
-                return
-            } else {
-                closure(.failure(ServiceError.fatalError))
+    func fetchData(closure: @escaping (Result<Features, Error>) -> ()) {
+        if let data = self.data {
+            closure(data)
+            return
+        } else {
+            Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { [weak self] _ in
+                self?.data = .success(DataService.mockData)
             }
         }
     }
