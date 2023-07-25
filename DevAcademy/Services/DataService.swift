@@ -25,7 +25,9 @@ final class DataService {
             return
         } else {
             Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { [weak self] _ in
-                self?.data = .success(DataService.mockData)
+                let result: Result<Features, Error> = .success(DataService.mockData)
+                self?.data = result
+                closure(result)
             }
         }
     }
