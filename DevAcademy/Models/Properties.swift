@@ -9,7 +9,7 @@ import Foundation
 
 struct Properties {
     let ogcFid: Int
-    let obrId: URL
+    let obrId1: URL
     let druh: PossibleKind
-    let název: String
+    let nazev: String
 }

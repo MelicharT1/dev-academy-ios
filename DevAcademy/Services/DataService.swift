@@ -34,11 +34,5 @@ final class DataService {
 }
 
 extension DataService {
-    private static let mockData: Features = .init(
-        feature: [
-            .init(
-                geometry: .init(latitude: 99, longitude: 69),
-                properties: .init(ogcFid: 1, obrId: .init(string: "wwww.porn.com")!, druh: .unknown("Nevim"), název: "name")
-            )
-        ])
+    private static let mockData: Features = Features.mock
 }

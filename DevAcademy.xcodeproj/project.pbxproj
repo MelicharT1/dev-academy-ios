@@ -10,6 +10,8 @@
 		BC4243B32A66E69600A7957E /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B22A66E69600A7957E /* Point.swift */; };
 		BC4243B52A66E6A500A7957E /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B42A66E6A500A7957E /* Feature.swift */; };
 		BC4243B72A66E6B400A7957E /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B62A66E6B400A7957E /* Features.swift */; };
+		BC63BF132A70035300469FA7 /* PlacesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63BF122A70035300469FA7 /* PlacesScene.swift */; };
+		BC63BF152A7004E400469FA7 /* PlacesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63BF142A7004E400469FA7 /* PlacesRow.swift */; };
 		BCB1595E2A66C7B7008FC189 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB1595D2A66C7B7008FC189 /* Kind.swift */; };
 		BCB159602A66C7FF008FC189 /* PossibleKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB1595F2A66C7FF008FC189 /* PossibleKind.swift */; };
 		BCB159622A66CD04008FC189 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB159612A66CD04008FC189 /* Properties.swift */; };
@@ -24,6 +26,8 @@
 		BC4243B22A66E69600A7957E /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		BC4243B42A66E6A500A7957E /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		BC4243B62A66E6B400A7957E /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
+		BC63BF122A70035300469FA7 /* PlacesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesScene.swift; sourceTree = "<group>"; };
+		BC63BF142A7004E400469FA7 /* PlacesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRow.swift; sourceTree = "<group>"; };
 		BCB1595D2A66C7B7008FC189 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
 		BCB1595F2A66C7FF008FC189 /* PossibleKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleKind.swift; sourceTree = "<group>"; };
 		BCB159612A66CD04008FC189 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
@@ -52,6 +56,23 @@
 				BCB159632A66CE43008FC189 /* DataService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BC63BF102A7002C100469FA7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BC63BF112A70032800469FA7 /* PlacesLive */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BC63BF112A70032800469FA7 /* PlacesLive */ = {
+			isa = PBXGroup;
+			children = (
+				BC63BF122A70035300469FA7 /* PlacesScene.swift */,
+				BC63BF142A7004E400469FA7 /* PlacesRow.swift */,
+			);
+			path = PlacesLive;
 			sourceTree = "<group>";
 		};
 		BCB1595C2A66C796008FC189 /* Models */ = {
@@ -86,10 +107,11 @@
 		C05610472A5C78CA007FB970 /* DevAcademy */ = {
 			isa = PBXGroup;
 			children = (
-				BC4243B12A66E66F00A7957E /* Services */,
-				BCB1595C2A66C796008FC189 /* Models */,
 				C05610482A5C78CA007FB970 /* DevAcademyApp.swift */,
 				C056104A2A5C78CA007FB970 /* ContentView.swift */,
+				BCB1595C2A66C796008FC189 /* Models */,
+				BC4243B12A66E66F00A7957E /* Services */,
+				BC63BF102A7002C100469FA7 /* Scenes */,
 				C056104C2A5C78CB007FB970 /* Assets.xcassets */,
 				C056104E2A5C78CB007FB970 /* Preview Content */,
 			);
@@ -178,6 +200,8 @@
 				BCB159602A66C7FF008FC189 /* PossibleKind.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* ContentView.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
+				BC63BF132A70035300469FA7 /* PlacesScene.swift in Sources */,
+				BC63BF152A7004E400469FA7 /* PlacesRow.swift in Sources */,
 				BCB159642A66CE43008FC189 /* DataService.swift in Sources */,
 				BC4243B52A66E6A500A7957E /* Feature.swift in Sources */,
 				BC4243B32A66E69600A7957E /* Point.swift in Sources */,
