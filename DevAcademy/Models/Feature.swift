@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Feature: Equatable {
+struct Feature: Equatable {    
     let geometry: Point
     let properties: Properties
 }

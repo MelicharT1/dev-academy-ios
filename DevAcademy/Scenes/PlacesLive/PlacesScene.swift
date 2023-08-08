@@ -6,29 +6,50 @@
 //
 
 import SwiftUI
+import ActivityIndicatorView
 
 struct PlacesScene: View {
     @State var features: [Feature] = []
+    @State var showFavorites: Bool = false
     
     var body: some View {
         NavigationStack {
             Group {
                 if !features.isEmpty {
                     List(features, id: \.properties.ogcFid) { feature in
-                        PlacesRow(feature: feature)
-                            .onTapGesture {
-                                onFeatureTapped(feature: feature)
-                            }
+                        NavigationLink(destination: PlaceDetail(feature: feature)) {
+                            PlacesRow(feature: feature)
+                        }
                     }
                     .animation(.default, value: features)
                     .listStyle(.plain)
                 } else {
-                    ProgressView()
+                    ActivityIndicatorView(isVisible: .constant(true), type: .growingCircle)
+                        .frame(width: 30)
                 }
             }
             .navigationTitle("Kultůrmapa")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                toolbarButton
+            }
         }
         .onAppear(perform: fetch)
+        .sheet(isPresented: $showFavorites) {
+            sheetContent
+        }
+    }
+    
+    private var toolbarButton: some View {
+        Button("Oblíbené") {
+            showFavorites.toggle()
+        }
+    }
+    
+    private var sheetContent: some View {
+        Text("ouuuu.. něco tu chybí")
+            .presentationDetents([.medium, .large])
+            .presentationDragIndicator(.visible)
     }
     
     func onFeatureTapped(feature: Feature) {
