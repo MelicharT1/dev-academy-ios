@@ -8,8 +8,8 @@
 import SwiftUI
 import MapKit
 
-struct PlaceDetail: View {
-    @State var feature: Feature
+struct PlaceDetailView: View {
+    let viewState: PlaceDetailViewState
     
     var body: some View {
         ZStack {
@@ -19,36 +19,35 @@ struct PlaceDetail: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
+    /// Layer of Map with MapMarker
     private var mapLayer: some View {
         Map(
             coordinateRegion: .constant(
                 MKCoordinateRegion(
-                    center: coordinate,
+                    center: viewState.coordinate,
                     span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
                 )
             ),
-            annotationItems: [IdentifiableCoordinate(coordinate: coordinate)]) { location in
+            annotationItems: [IdentifiableCoordinate(coordinate: viewState.coordinate)]) { location in
                 MapMarker(coordinate: location.coordinate, tint: .red)
             }
             .ignoresSafeArea()
     }
     
+    /// Detail place as PlacesRow
     private var detailPlace: some View {
         VStack {
-            PlacesRow(feature: feature)
+            PlacesRow(place: viewState.place)
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(.thinMaterial)
             Spacer()
         }
     }
-    
-    private var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: feature.geometry.latitude, longitude: feature.geometry.longitude)
-    }
 }
 
-struct IdentifiableCoordinate: Identifiable {
+/// IdentifiableCoordinate for Map - `annotationItems`
+private struct IdentifiableCoordinate: Identifiable {
     let id = UUID()
     let coordinate: CLLocationCoordinate2D
     
@@ -57,8 +56,8 @@ struct IdentifiableCoordinate: Identifiable {
     }
 }
 
-struct PlaceDetail_Previews: PreviewProvider {
+struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetail(feature: Features.mock.features.first!)
+        PlaceDetailView(viewState: .init(place: Places.mock.places.first!))
     }
 }

@@ -2,9 +2,11 @@ import SwiftUI
 
 @main
 struct DevAcademyApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .inject(objects: ObservableObjects(), coordinator: Coordinator())
         }
     }
 }
