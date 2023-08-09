@@ -18,7 +18,7 @@ struct PlacesSceneView: View {
             Group {
                 if viewState.isPlaceEmpty {
                     List(viewState.places, id: \.properties.ogcFid) { place in
-                        NavigationLink(destination: PlaceDetailView(viewState: .init(place: place))) {
+                        NavigationLink(destination: coordinator.makeDetailView(for: place)) {
                             PlacesRow(place: place)
                         }
                     }
