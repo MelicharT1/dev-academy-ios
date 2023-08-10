@@ -15,17 +15,17 @@ private enum ServiceError: Error {
 final class DataService {
     static let shared = DataService()
     
-    var data: Result<Features, Error>?
+    var data: Result<Places, Error>?
     
     private init() {}
     
-    func fetchData(closure: @escaping (Result<Features, Error>) -> ()) {
+    func fetchData(closure: @escaping (Result<Places, Error>) -> ()) {
         if let data = self.data {
             closure(data)
             return
         } else {
             Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { [weak self] _ in
-                let result: Result<Features, Error> = .success(DataService.mockData)
+                let result: Result<Places, Error> = .success(DataService.mockData)
                 self?.data = result
                 closure(result)
             }
@@ -34,5 +34,5 @@ final class DataService {
 }
 
 extension DataService {
-    private static let mockData: Features = Features.mock
+    private static let mockData: Places = Places.mock
 }

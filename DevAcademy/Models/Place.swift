@@ -1,5 +1,5 @@
 //
-//  Feature.swift
+//  Place.swift
 //  DevAcademy
 //
 //  Created by Tomáš Melichar on 18.07.2023.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Feature: Equatable {    
+struct Place: Equatable {    
     let geometry: Point
     let properties: Properties
 }
 
-extension Feature {
-    static func == (lhs: Feature, rhs: Feature) -> Bool {
+extension Place {
+    static func == (lhs: Place, rhs: Place) -> Bool {
         lhs.properties.ogcFid == rhs.properties.ogcFid
     }
 }
