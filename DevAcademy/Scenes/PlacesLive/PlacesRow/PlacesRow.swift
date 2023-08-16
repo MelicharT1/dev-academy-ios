@@ -15,6 +15,8 @@ struct PlacesRow: View {
             imageView
             textSection
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel([place.attributes.name, place.attributes.type.rawValue].compactMap { $0 }.joined(separator: " "))
     }
     
     /// Image view (with AsyncImage

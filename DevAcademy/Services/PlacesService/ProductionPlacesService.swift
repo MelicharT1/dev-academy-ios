@@ -8,6 +8,7 @@
 import Foundation
 
 private struct ApiConstants {
+    // [Documentation] https://data.brno.cz/datasets/5f5ef5229c204723844d075fde3fbd7c_0/api
     static let url = "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
     /// Current is `Get`
     static let httpMethod = "GET"
