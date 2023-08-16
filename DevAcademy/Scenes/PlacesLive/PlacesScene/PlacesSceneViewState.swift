@@ -29,4 +29,8 @@ struct PlacesSceneViewState: DynamicProperty {
     func fetch() {
         placesObject.fetchData()
     }
+    
+    func fetchWithAsync() async {
+        await placesObject.placesWithAsync()
+    }
 }

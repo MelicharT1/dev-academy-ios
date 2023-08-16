@@ -16,7 +16,13 @@ struct PlaceDetailViewState: DynamicProperty {
         self.place = place
     }
     
+    /// Map coordinate
     var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: place.geometry.latitude, longitude: place.geometry.longitude)
+        CLLocationCoordinate2D(latitude: place.geometry?.latitude ?? 0, longitude: place.geometry?.longitude ?? 0)
+    }
+    
+    /// Map span
+    var span: MKCoordinateSpan {
+        MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     }
 }

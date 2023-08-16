@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Kind: String {
+enum Kind: String, Codable {
     case divadlo = "Divadlo"
     case galerie = "Galerie"
     case hub = "Hub"

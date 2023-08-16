@@ -7,146 +7,146 @@
 
 import Foundation
 
-struct Places {
-    let places: [Place]
+struct Places: Codable {
+    let features: [Place]
 }
 
 extension Places {
     static let mock: Places = Places(
-        places: [
+        features: [
             Place(
                 geometry: Point(latitude: 49.1913, longitude: 16.6115),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 1,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.divadlo),
-                    nazev: "Národní divadlo Brno"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.divadlo),
+                    name: "Národní divadlo Brno"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.2006, longitude: 16.6097),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 2,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.kino),
-                    nazev: "Kino Art Brno"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.kino),
+                    name: "Kino Art Brno"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.2019, longitude: 16.6151),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 3,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.muzeum),
-                    nazev: "Moravské zemské muzeum"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.muzeum),
+                    name: "Moravské zemské muzeum"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.2079, longitude: 16.5938),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 4,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.kulturniCentrum),
-                    nazev: "BOUFOU Prostějovská Brno"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.kulturniCentrum),
+                    name: "BOUFOU Prostějovská Brno"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.2072, longitude: 16.6061),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 5,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.hudebniKlub),
-                    nazev: "Kabinet múz"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.hudebniKlub),
+                    name: "Kabinet múz"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1894, longitude: 165602),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 6,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.knihovna),
-                    nazev: "Moravská zemská knihovna"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.knihovna),
+                    name: "Moravská zemská knihovna"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1914, longitude: 16.6126),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 7,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.koncertniHala),
-                    nazev: "Janáčkovo divadlo"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.koncertniHala),
+                    name: "Janáčkovo divadlo"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.2182, longitude: 16.5893),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 8,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.kulturniPamátka),
-                    nazev: "Špilberk Brno"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.kulturniPamátka),
+                    name: "Špilberk Brno"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1920, longitude: 16.6071),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 9,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.letniKino),
-                    nazev: "Letní kino Lužánky"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.letniKino),
+                    name: "Letní kino Lužánky"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1925, longitude: 16.6112),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 10,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.podnikSLulturnimProgramem),
-                    nazev: "Bar, který neexistuje"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.podnikSLulturnimProgramem),
+                    name: "Bar, který neexistuje"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1925, longitude: 16.6112),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 11,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.kino),
-                    nazev: "Cinema City"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.kino),
+                    name: "Cinema City"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1925, longitude: 16.6112),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 12,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.kino),
-                    nazev: "Univerzitní kino Scala"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.kino),
+                    name: "Univerzitní kino Scala"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1925, longitude: 16.6112),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 13,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.hub),
-                    nazev: "Impact Hub"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.hub),
+                    name: "Impact Hub"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1925, longitude: 16.6112),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 14,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.kulturniPamátka),
-                    nazev: "Villa Tugendhat"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.kulturniPamátka),
+                    name: "Villa Tugendhat"
                 )
             ),
             Place(
                 geometry: Point(latitude: 49.1925, longitude: 16.6112),
-                properties: Properties(
+                attributes: Properties(
                     ogcFid: 15,
-                    obrId1: URL(string: "https://picsum.photos/200")!,
-                    druh: .kind(.vystaviste),
-                    nazev: "Brněnské výstaviště"
+                    imageURL: URL(string: "https://picsum.photos/200")!,
+                    type: .kind(.vystaviste),
+                    name: "Brněnské výstaviště"
                 )
             )
         ]

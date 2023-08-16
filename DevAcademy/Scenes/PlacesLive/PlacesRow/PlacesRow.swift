@@ -19,7 +19,7 @@ struct PlacesRow: View {
     
     /// Image view (with AsyncImage
     private var imageView: some View {
-        AsyncImage(url: place.properties.obrId1) { image in
+        AsyncImage(url: place.attributes.imageURL) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -34,12 +34,12 @@ struct PlacesRow: View {
     /// Text section
     private var textSection: some View {
         VStack(alignment: .leading) {
-            Text(place.properties.nazev)
+            Text(place.attributes.name)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .lineLimit(1)
             
-            Text(place.properties.druh.rawValue)
+            Text(place.attributes.type.rawValue)
                 .foregroundColor(.secondary)
                 .font(.subheadline)
         }
@@ -48,6 +48,6 @@ struct PlacesRow: View {
 
 struct PlacesRow_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesRow(place: Places.mock.places.first!)
+        PlacesRow(place: Places.mock.features.first!)
     }
 }

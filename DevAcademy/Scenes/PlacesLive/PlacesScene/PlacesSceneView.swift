@@ -17,7 +17,7 @@ struct PlacesSceneView: View {
         NavigationStack {
             Group {
                 if viewState.isPlaceEmpty {
-                    List(viewState.places, id: \.properties.ogcFid) { place in
+                    List(viewState.places, id: \.attributes.ogcFid) { place in
                         NavigationLink(destination: coordinator.makeDetailView(for: place)) {
                             PlacesRow(place: place)
                         }
@@ -31,7 +31,12 @@ struct PlacesSceneView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { toolbarButton }
         }
-        .onAppear(perform: viewState.fetch)
+        // MARK: - 1) clousure:
+        // .onAppear(perform: viewState.fetch)
+        // MARK: - 2) async (current)
+        .task {
+            await viewState.fetchWithAsync()
+        }
         .sheet(isPresented: viewState.$showFavorites) { sheetContent }
     }
     
