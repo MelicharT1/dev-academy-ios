@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct Point {
+struct Point: Codable {
+    /// as Y value
     let latitude: Double
+    /// as X value
     let longitude: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case longitude = "x"
+        case latitude = "y"
+    }
 }

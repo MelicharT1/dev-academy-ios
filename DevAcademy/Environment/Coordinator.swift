@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// `Coordinator` as Factory
 final class Coordinator: ObservableObject {
     /// PlacesScene
     var placesScene: some View {

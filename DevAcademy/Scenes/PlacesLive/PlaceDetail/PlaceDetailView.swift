@@ -22,12 +22,7 @@ struct PlaceDetailView: View {
     /// Layer of Map with MapMarker
     private var mapLayer: some View {
         Map(
-            coordinateRegion: .constant(
-                MKCoordinateRegion(
-                    center: viewState.coordinate,
-                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-                )
-            ),
+            coordinateRegion: .constant(MKCoordinateRegion(center: viewState.coordinate, span: viewState.span)),
             annotationItems: [IdentifiableCoordinate(coordinate: viewState.coordinate)]) { location in
                 MapMarker(coordinate: location.coordinate, tint: .red)
             }
@@ -58,6 +53,6 @@ private struct IdentifiableCoordinate: Identifiable {
 
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailView(viewState: .init(place: Places.mock.places.first!))
+        PlaceDetailView(viewState: .init(place: Places.mock.features.first!))
     }
 }

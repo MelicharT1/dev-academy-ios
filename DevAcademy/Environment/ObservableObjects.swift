@@ -11,7 +11,7 @@ import Foundation
 final class ObservableObjects {
     let places: PlacesObservableObject
 
-    init(places: PlacesObservableObject = .init()) {
+    init(places: PlacesObservableObject = PlacesObservableObject(placesService: ProductionPlacesService())) {
         self.places = places
     }
 }

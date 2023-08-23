@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PossibleKind: RawRepresentable {
+enum PossibleKind: RawRepresentable, Codable {
     case kind(Kind)
     case unknown(String)
     
