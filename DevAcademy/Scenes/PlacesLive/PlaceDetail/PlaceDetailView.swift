@@ -21,12 +21,20 @@ struct PlaceDetailView: View {
     
     /// Layer of Map with MapMarker
     private var mapLayer: some View {
-        Map(
-            coordinateRegion: .constant(MKCoordinateRegion(center: viewState.coordinate, span: viewState.span)),
-            annotationItems: [IdentifiableCoordinate(coordinate: viewState.coordinate)]) { location in
-                MapMarker(coordinate: location.coordinate, tint: .red)
+        ZStack {
+            Text(Localization.PlaceDetail.emptyMap)
+                .font(.title2)
+                .fontWeight(.semibold)
+            
+            viewState.coordinate.map { coordinate in
+                Map(
+                    coordinateRegion: .constant(MKCoordinateRegion(center: coordinate, span: viewState.span)),
+                    annotationItems: [IdentifiableCoordinate(coordinate: coordinate)]) { location in
+                        MapMarker(coordinate: location.coordinate, tint: .red)
+                    }
+                    .ignoresSafeArea()
             }
-            .ignoresSafeArea()
+        }
     }
     
     /// Detail place as PlacesRow
@@ -36,23 +44,53 @@ struct PlaceDetailView: View {
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(.thinMaterial)
+            
             Spacer()
+            
+            mapSection
         }
     }
-}
-
-/// IdentifiableCoordinate for Map - `annotationItems`
-private struct IdentifiableCoordinate: Identifiable {
-    let id = UUID()
-    let coordinate: CLLocationCoordinate2D
     
-    init(coordinate: CLLocationCoordinate2D) {
-        self.coordinate = coordinate
+    private var mapSection: some View {
+        HStack {
+            Spacer()
+            
+            VStack(spacing: Spacings.standard) {
+                viewState.place.attributes.phoneNumber.map { _ in
+                    makeButton(title: Localization.PlaceDetail.callTitle, action: viewState.didTapCall)
+                }
+                
+                viewState.place.attributes.website.map { _ in
+                    makeButton(title: Localization.PlaceDetail.webTitle, action: viewState.didTapOpenLink)
+                }
+                
+                viewState.place.geometry.map { _ in 
+                    makeButton(title: Localization.PlaceDetail.navigationTitle, action: viewState.didTapOpenNavigation)
+                }
+
+            }
+            .padding(.vertical)
+            .padding(.horizontal)
+        }
+    }
+    
+    private func makeButton(title: String, action: @escaping () -> Void) -> some View {
+        Button {
+            action()
+        } label: {
+            Text(title)
+        }
+        .padding(.horizontal)
+        .frame(width: 120, height: 40)
+        .background(.ultraThickMaterial)
+        .cornerRadius(10)
+        .shadow(color: .black, radius: 0.7)
     }
 }
 
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailView(viewState: .init(place: Places.mock.features.first!))
+        PlaceDetailView(viewState: .init(place: Places.mock.features.first!, mapService: MapService()))
+            .injectPreviewsEnvironment()
     }
 }

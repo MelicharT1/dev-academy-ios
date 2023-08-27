@@ -13,6 +13,7 @@ struct Properties: Codable {
     var type: PossibleKind
     var name: String
     var email: String?
+    var website: String?
     var phoneNumber: String?
     
     enum CodingKeys: String, CodingKey {
@@ -21,6 +22,7 @@ struct Properties: Codable {
         case type = "druh"
         case name = "nazev"
         case email
+        case website = "web"
         case phoneNumber = "telefon"
     }
 }

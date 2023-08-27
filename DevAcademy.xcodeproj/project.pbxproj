@@ -16,6 +16,12 @@
 		BC3249B52A82D6220065805A /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249B42A82D6220065805A /* Services.swift */; };
 		BC3249B82A8D28380065805A /* MockPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249B72A8D28380065805A /* MockPlacesService.swift */; };
 		BC3249BA2A8D285E0065805A /* ProductionPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249B92A8D285E0065805A /* ProductionPlacesService.swift */; };
+		BC3249BC2A9505680065805A /* IdentifiableCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249BB2A9505680065805A /* IdentifiableCoordinate.swift */; };
+		BC3249BF2A9693DC0065805A /* SettingsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249BE2A9693DC0065805A /* SettingsViewState.swift */; };
+		BC3249C12A9693EC0065805A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249C02A9693EC0065805A /* SettingsView.swift */; };
+		BC3249C42A9B454F0065805A /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249C32A9B454F0065805A /* Localization.swift */; };
+		BC3249C62A9BCEA20065805A /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249C52A9BCEA20065805A /* MapService.swift */; };
+		BC3249C82A9BD1920065805A /* Spacings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249C72A9BD1920065805A /* Spacings.swift */; };
 		BC4243B32A66E69600A7957E /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B22A66E69600A7957E /* Point.swift */; };
 		BC4243B52A66E6A500A7957E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B42A66E6A500A7957E /* Place.swift */; };
 		BC4243B72A66E6B400A7957E /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B62A66E6B400A7957E /* Places.swift */; };
@@ -43,6 +49,12 @@
 		BC3249B42A82D6220065805A /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		BC3249B72A8D28380065805A /* MockPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlacesService.swift; sourceTree = "<group>"; };
 		BC3249B92A8D285E0065805A /* ProductionPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionPlacesService.swift; sourceTree = "<group>"; };
+		BC3249BB2A9505680065805A /* IdentifiableCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableCoordinate.swift; sourceTree = "<group>"; };
+		BC3249BE2A9693DC0065805A /* SettingsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewState.swift; sourceTree = "<group>"; };
+		BC3249C02A9693EC0065805A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BC3249C32A9B454F0065805A /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		BC3249C52A9BCEA20065805A /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		BC3249C72A9BD1920065805A /* Spacings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacings.swift; sourceTree = "<group>"; };
 		BC4243B22A66E69600A7957E /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		BC4243B42A66E6A500A7957E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		BC4243B62A66E6B400A7957E /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
@@ -134,11 +146,30 @@
 			path = PlacesService;
 			sourceTree = "<group>";
 		};
+		BC3249BD2A9693A40065805A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BC3249C02A9693EC0065805A /* SettingsView.swift */,
+				BC3249BE2A9693DC0065805A /* SettingsViewState.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		BC3249C22A9B45370065805A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BC3249C32A9B454F0065805A /* Localization.swift */,
+				BC3249C72A9BD1920065805A /* Spacings.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		BC4243B12A66E66F00A7957E /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				BC3249B62A8D28270065805A /* PlacesService */,
 				BC3249B42A82D6220065805A /* Services.swift */,
+				BC3249C52A9BCEA20065805A /* MapService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -156,6 +187,7 @@
 			children = (
 				BC3249A02A82749D0065805A /* PlacesScene */,
 				BC3249A12A8274AB0065805A /* PlaceDetail */,
+				BC3249BD2A9693A40065805A /* Settings */,
 				BC3249A22A8274B90065805A /* PlacesRow */,
 			);
 			path = PlacesLive;
@@ -166,6 +198,7 @@
 			children = (
 				BCB1595D2A66C7B7008FC189 /* Kind.swift */,
 				BCB159612A66CD04008FC189 /* Properties.swift */,
+				BC3249BB2A9505680065805A /* IdentifiableCoordinate.swift */,
 				BC4243B62A66E6B400A7957E /* Places.swift */,
 				BC4243B42A66E6A500A7957E /* Place.swift */,
 				BC4243B22A66E69600A7957E /* Point.swift */,
@@ -200,6 +233,7 @@
 				BCB1595C2A66C796008FC189 /* Models */,
 				BC4243B12A66E66F00A7957E /* Services */,
 				BC63BF102A7002C100469FA7 /* Scenes */,
+				BC3249C22A9B45370065805A /* UI */,
 				C056104C2A5C78CB007FB970 /* Assets.xcassets */,
 				C056104E2A5C78CB007FB970 /* Preview Content */,
 			);
@@ -296,18 +330,24 @@
 				BCB159602A66C7FF008FC189 /* PossibleKind.swift in Sources */,
 				BC3249BA2A8D285E0065805A /* ProductionPlacesService.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
+				BC3249C42A9B454F0065805A /* Localization.swift in Sources */,
 				BC3249B82A8D28380065805A /* MockPlacesService.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
 				BC3249B32A82D0BF0065805A /* View+.swift in Sources */,
+				BC3249C12A9693EC0065805A /* SettingsView.swift in Sources */,
 				BC63BF132A70035300469FA7 /* PlacesSceneView.swift in Sources */,
 				BC63BF152A7004E400469FA7 /* PlacesRow.swift in Sources */,
 				BCB159642A66CE43008FC189 /* PlacesService.swift in Sources */,
+				BC3249BF2A9693DC0065805A /* SettingsViewState.swift in Sources */,
 				BC3249AC2A82829F0065805A /* PlaceDetailViewState.swift in Sources */,
+				BC3249C82A9BD1920065805A /* Spacings.swift in Sources */,
 				BC4243B52A66E6A500A7957E /* Place.swift in Sources */,
 				BC3249A72A827C2E0065805A /* PlacesObservableObject.swift in Sources */,
 				BC3249B52A82D6220065805A /* Services.swift in Sources */,
 				BC3249A42A8274FA0065805A /* PlacesSceneViewState.swift in Sources */,
+				BC3249BC2A9505680065805A /* IdentifiableCoordinate.swift in Sources */,
 				BC4243B32A66E69600A7957E /* Point.swift in Sources */,
+				BC3249C62A9BCEA20065805A /* MapService.swift in Sources */,
 				BCB159622A66CD04008FC189 /* Properties.swift in Sources */,
 				BCB1595E2A66C7B7008FC189 /* Kind.swift in Sources */,
 				BC3249B02A828A980065805A /* ObservableObjects.swift in Sources */,

@@ -7,11 +7,15 @@
 
 import Foundation
 
+enum HTTPMetod: String {
+    case get = "GET"
+    case post = "POST"
+    case patch = "PATCH"
+}
+
 private struct ApiConstants {
     // [Documentation] https://data.brno.cz/datasets/5f5ef5229c204723844d075fde3fbd7c_0/api
     static let url = "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
-    /// Current is `Get`
-    static let httpMethod = "GET"
 }
 
 private enum APIError: Error {
@@ -27,7 +31,7 @@ final class ProductionPlacesService: PlacesService {
         let session = URLSession.shared
         let url = URL(string: ApiConstants.url)!
         var request = URLRequest(url: url)
-        request.httpMethod = ApiConstants.httpMethod
+        request.httpMethod = HTTPMetod.get.rawValue
         
         let (data, response) = try await session.data(for: request)
         guard let response = response as? HTTPURLResponse, 200 ... 299  ~= response.statusCode else {
@@ -42,7 +46,7 @@ final class ProductionPlacesService: PlacesService {
         let session = URLSession.shared
         let url = URL(string: ApiConstants.url)!
         var request = URLRequest(url: url)
-        request.httpMethod = ApiConstants.httpMethod
+        request.httpMethod = HTTPMetod.get.rawValue
         
         let task = session.dataTask(with: request) { data, response, error in
             // DATA
