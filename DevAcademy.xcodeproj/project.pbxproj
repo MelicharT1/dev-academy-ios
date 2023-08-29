@@ -16,6 +16,7 @@
 		BC3249B52A82D6220065805A /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249B42A82D6220065805A /* Services.swift */; };
 		BC3249B82A8D28380065805A /* MockPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249B72A8D28380065805A /* MockPlacesService.swift */; };
 		BC3249BA2A8D285E0065805A /* ProductionPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249B92A8D285E0065805A /* ProductionPlacesService.swift */; };
+		BC3249CF2A9E669A0065805A /* StoredAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249CE2A9E669A0065805A /* StoredAsyncImage.swift */; };
 		BC4243B32A66E69600A7957E /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B22A66E69600A7957E /* Point.swift */; };
 		BC4243B52A66E6A500A7957E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B42A66E6A500A7957E /* Place.swift */; };
 		BC4243B72A66E6B400A7957E /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B62A66E6B400A7957E /* Places.swift */; };
@@ -43,6 +44,7 @@
 		BC3249B42A82D6220065805A /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		BC3249B72A8D28380065805A /* MockPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlacesService.swift; sourceTree = "<group>"; };
 		BC3249B92A8D285E0065805A /* ProductionPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionPlacesService.swift; sourceTree = "<group>"; };
+		BC3249CE2A9E669A0065805A /* StoredAsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoredAsyncImage.swift; path = DevAcademy/UI/Components/StoredAsyncImage.swift; sourceTree = SOURCE_ROOT; };
 		BC4243B22A66E69600A7957E /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		BC4243B42A66E6A500A7957E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		BC4243B62A66E6B400A7957E /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		BC3249A22A8274B90065805A /* PlacesRow */ = {
 			isa = PBXGroup;
 			children = (
+				BC3249CE2A9E669A0065805A /* StoredAsyncImage.swift */,
 				BC63BF142A7004E400469FA7 /* PlacesRow.swift */,
 			);
 			path = PlacesRow;
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC63BF172A7933A800469FA7 /* PlaceDetailView.swift in Sources */,
+				BC3249CF2A9E669A0065805A /* StoredAsyncImage.swift in Sources */,
 				BC4243B72A66E6B400A7957E /* Places.swift in Sources */,
 				BC3249A92A827C380065805A /* Coordinator.swift in Sources */,
 				BCB159602A66C7FF008FC189 /* PossibleKind.swift in Sources */,
