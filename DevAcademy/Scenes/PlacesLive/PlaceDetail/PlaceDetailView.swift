@@ -37,6 +37,19 @@ struct PlaceDetailView: View {
                 .frame(maxWidth: .infinity)
                 .background(.thinMaterial)
             Spacer()
+            
+            Button {
+                viewState.isFavorite.wrappedValue.toggle()
+            } label: {
+                Image(systemName: viewState.isFavorite.wrappedValue ? "heart.fill" : "heart")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .scaledToFit()
+                    .padding()
+                    .background(.thinMaterial)
+                    .cornerRadius(30)
+            }
+
         }
     }
 }

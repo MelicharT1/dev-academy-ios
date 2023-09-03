@@ -17,6 +17,8 @@
 		BC3249B82A8D28380065805A /* MockPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249B72A8D28380065805A /* MockPlacesService.swift */; };
 		BC3249BA2A8D285E0065805A /* ProductionPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249B92A8D285E0065805A /* ProductionPlacesService.swift */; };
 		BC3249CF2A9E669A0065805A /* StoredAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249CE2A9E669A0065805A /* StoredAsyncImage.swift */; };
+		BC3249D22AA11CB60065805A /* FavoriteSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249D12AA11CB60065805A /* FavoriteSceneView.swift */; };
+		BC3249D42AA12CCF0065805A /* FavoriteSceneViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249D32AA12CCF0065805A /* FavoriteSceneViewState.swift */; };
 		BC4243B32A66E69600A7957E /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B22A66E69600A7957E /* Point.swift */; };
 		BC4243B52A66E6A500A7957E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B42A66E6A500A7957E /* Place.swift */; };
 		BC4243B72A66E6B400A7957E /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4243B62A66E6B400A7957E /* Places.swift */; };
@@ -45,6 +47,8 @@
 		BC3249B72A8D28380065805A /* MockPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlacesService.swift; sourceTree = "<group>"; };
 		BC3249B92A8D285E0065805A /* ProductionPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionPlacesService.swift; sourceTree = "<group>"; };
 		BC3249CE2A9E669A0065805A /* StoredAsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoredAsyncImage.swift; path = DevAcademy/UI/Components/StoredAsyncImage.swift; sourceTree = SOURCE_ROOT; };
+		BC3249D12AA11CB60065805A /* FavoriteSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSceneView.swift; sourceTree = "<group>"; };
+		BC3249D32AA12CCF0065805A /* FavoriteSceneViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSceneViewState.swift; sourceTree = "<group>"; };
 		BC4243B22A66E69600A7957E /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		BC4243B42A66E6A500A7957E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		BC4243B62A66E6B400A7957E /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
@@ -137,6 +141,15 @@
 			path = PlacesService;
 			sourceTree = "<group>";
 		};
+		BC3249D02AA11CA10065805A /* FavoriteScene */ = {
+			isa = PBXGroup;
+			children = (
+				BC3249D12AA11CB60065805A /* FavoriteSceneView.swift */,
+				BC3249D32AA12CCF0065805A /* FavoriteSceneViewState.swift */,
+			);
+			path = FavoriteScene;
+			sourceTree = "<group>";
+		};
 		BC4243B12A66E66F00A7957E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +170,7 @@
 		BC63BF112A70032800469FA7 /* PlacesLive */ = {
 			isa = PBXGroup;
 			children = (
+				BC3249D02AA11CA10065805A /* FavoriteScene */,
 				BC3249A02A82749D0065805A /* PlacesScene */,
 				BC3249A12A8274AB0065805A /* PlaceDetail */,
 				BC3249A22A8274B90065805A /* PlacesRow */,
@@ -294,11 +308,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC63BF172A7933A800469FA7 /* PlaceDetailView.swift in Sources */,
+				BC3249D42AA12CCF0065805A /* FavoriteSceneViewState.swift in Sources */,
 				BC3249CF2A9E669A0065805A /* StoredAsyncImage.swift in Sources */,
 				BC4243B72A66E6B400A7957E /* Places.swift in Sources */,
 				BC3249A92A827C380065805A /* Coordinator.swift in Sources */,
 				BCB159602A66C7FF008FC189 /* PossibleKind.swift in Sources */,
 				BC3249BA2A8D285E0065805A /* ProductionPlacesService.swift in Sources */,
+				BC3249D22AA11CB60065805A /* FavoriteSceneView.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
 				BC3249B82A8D28380065805A /* MockPlacesService.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
