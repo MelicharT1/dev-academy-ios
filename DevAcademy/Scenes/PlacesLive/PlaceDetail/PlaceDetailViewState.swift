@@ -12,11 +12,8 @@ import MapKit
 struct PlaceDetailViewState: DynamicProperty {
     let place: Place
     
-    private let mapService: MapService
-    
-    init(place: Place, mapService: MapService) {
+    init(place: Place) {
         self.place = place
-        self.mapService = mapService
     }
     
     /// Map coordinate
@@ -33,19 +30,19 @@ struct PlaceDetailViewState: DynamicProperty {
     
     func didTapCall() {
         if let phone = place.attributes.phoneNumber {
-            mapService.didTapCall(number: phone)
+            URL.didTapCall(number: phone)
         }
     }
     
     func didTapOpenLink() {
         if let website = place.attributes.website, let url = URL(string: website) {
-            mapService.didTapOpenLink(for: url)
+            URL.didTapOpenLink(for: url)
         }
     }
     
     func didTapOpenNavigation() {
         guard let coordinate = coordinate else { return }
         
-        mapService.didTapOpenNavigation(for: coordinate)
+        URL.didTapOpenNavigation(for: coordinate)
     }
 }

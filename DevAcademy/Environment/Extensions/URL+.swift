@@ -8,18 +8,18 @@
 import Foundation
 import MapKit
 
-final class MapService {
-    func didTapOpenNavigation(for coordinate: CLLocationCoordinate2D) {
+extension URL {
+    static func didTapOpenNavigation(for coordinate: CLLocationCoordinate2D) {
         guard let url = URL(string: "maps://?address=\(coordinate.latitude),\(coordinate.longitude)") else { return }
         
         UIApplication.shared.open(url)
     }
     
-    func didTapOpenLink(for url: URL) {
+    static func didTapOpenLink(for url: URL) {
         UIApplication.shared.open(url)
     }
     
-    func didTapCall(number: String) {
+    static func didTapCall(number: String) {
         guard let url = URL(string: "telprompt://\(number)") else { return }
         
         let application = UIApplication.shared

@@ -28,7 +28,7 @@ final class Coordinator: ObservableObject {
 // MARK: - Make Views with parameter (func)
 extension Coordinator {
     func makeDetailView(for place: Place) -> some View {
-        PlaceDetailView(viewState: .init(place: place, mapService: MapService()))
+        PlaceDetailView(viewState: .init(place: place))
     }
     
     func setting() -> some View {

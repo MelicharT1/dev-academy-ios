@@ -90,7 +90,7 @@ struct PlaceDetailView: View {
 
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailView(viewState: .init(place: Places.mock.features.first!, mapService: MapService()))
+        PlaceDetailView(viewState: .init(place: Places.mock.features.first!))
             .injectPreviewsEnvironment()
     }
 }
