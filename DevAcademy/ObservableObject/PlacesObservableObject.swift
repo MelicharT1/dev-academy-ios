@@ -52,16 +52,18 @@ final class PlacesObservableObject: ObservableObject {
     }
     
     func updatePlaces() {
-        places.append(contentsOf: rawPlaces)
+        var newPlaces = places
         guard let favorites = favorites else { return }
         
         for favoriteID in favorites {
-            if let index = places.firstIndex(where: { $0.attributes.ogcFid == favoriteID }) {
-                let item = places.remove(at: index)
-                places.insert(item, at: 0)
+            if let index = newPlaces.firstIndex(where: { $0.attributes.ogcFid == favoriteID }) {
+                let item = newPlaces.remove(at: index)
+                newPlaces.insert(item, at: 0)
             }
         }
+        places = newPlaces
     }
+
     
     func isFavorite(place: Place) -> Bool {
         guard let favorites = favorites else { return false }
