@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC127E742AA75C230002DE93 /* UserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC127E732AA75C230002DE93 /* UserLocationService.swift */; };
+		BC127E782AA8D6E00002DE93 /* MockUserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC127E772AA8D6E00002DE93 /* MockUserLocationService.swift */; };
+		BC127E7A2AA8D6EC0002DE93 /* ProductionUserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC127E792AA8D6EC0002DE93 /* ProductionUserLocationService.swift */; };
 		BC3249A42A8274FA0065805A /* PlacesSceneViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249A32A8274FA0065805A /* PlacesSceneViewState.swift */; };
 		BC3249A72A827C2E0065805A /* PlacesObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249A62A827C2E0065805A /* PlacesObservableObject.swift */; };
 		BC3249A92A827C380065805A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3249A82A827C380065805A /* Coordinator.swift */; };
@@ -37,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC127E732AA75C230002DE93 /* UserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationService.swift; sourceTree = "<group>"; };
+		BC127E752AA761330002DE93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC127E772AA8D6E00002DE93 /* MockUserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserLocationService.swift; sourceTree = "<group>"; };
+		BC127E792AA8D6EC0002DE93 /* ProductionUserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionUserLocationService.swift; sourceTree = "<group>"; };
 		BC3249A32A8274FA0065805A /* PlacesSceneViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSceneViewState.swift; sourceTree = "<group>"; };
 		BC3249A62A827C2E0065805A /* PlacesObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesObservableObject.swift; sourceTree = "<group>"; };
 		BC3249A82A827C380065805A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -78,6 +85,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC127E762AA8D6CD0002DE93 /* UserLocationService */ = {
+			isa = PBXGroup;
+			children = (
+				BC127E732AA75C230002DE93 /* UserLocationService.swift */,
+				BC127E772AA8D6E00002DE93 /* MockUserLocationService.swift */,
+				BC127E792AA8D6EC0002DE93 /* ProductionUserLocationService.swift */,
+			);
+			path = UserLocationService;
+			sourceTree = "<group>";
+		};
 		BC3249A02A82749D0065805A /* PlacesScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +172,7 @@
 			children = (
 				BC3249B62A8D28270065805A /* PlacesService */,
 				BC3249B42A82D6220065805A /* Services.swift */,
+				BC127E762AA8D6CD0002DE93 /* UserLocationService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -210,6 +228,7 @@
 		C05610472A5C78CA007FB970 /* DevAcademy */ = {
 			isa = PBXGroup;
 			children = (
+				BC127E752AA761330002DE93 /* Info.plist */,
 				C05610482A5C78CA007FB970 /* DevAcademyApp.swift */,
 				C056104A2A5C78CA007FB970 /* RootView.swift */,
 				BC3249AA2A827EB80065805A /* ObservableObject */,
@@ -308,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC63BF172A7933A800469FA7 /* PlaceDetailView.swift in Sources */,
+				BC127E742AA75C230002DE93 /* UserLocationService.swift in Sources */,
 				BC3249D42AA12CCF0065805A /* FavoriteSceneViewState.swift in Sources */,
 				BC3249CF2A9E669A0065805A /* StoredAsyncImage.swift in Sources */,
 				BC4243B72A66E6B400A7957E /* Places.swift in Sources */,
@@ -315,6 +335,7 @@
 				BCB159602A66C7FF008FC189 /* PossibleKind.swift in Sources */,
 				BC3249BA2A8D285E0065805A /* ProductionPlacesService.swift in Sources */,
 				BC3249D22AA11CB60065805A /* FavoriteSceneView.swift in Sources */,
+				BC127E782AA8D6E00002DE93 /* MockUserLocationService.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
 				BC3249B82A8D28380065805A /* MockPlacesService.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
@@ -322,6 +343,7 @@
 				BC63BF132A70035300469FA7 /* PlacesSceneView.swift in Sources */,
 				BC63BF152A7004E400469FA7 /* PlacesRow.swift in Sources */,
 				BCB159642A66CE43008FC189 /* PlacesService.swift in Sources */,
+				BC127E7A2AA8D6EC0002DE93 /* ProductionUserLocationService.swift in Sources */,
 				BC3249AC2A82829F0065805A /* PlaceDetailViewState.swift in Sources */,
 				BC4243B52A66E6A500A7957E /* Place.swift in Sources */,
 				BC3249A72A827C2E0065805A /* PlacesObservableObject.swift in Sources */,
@@ -459,8 +481,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DevAcademy/Preview Content\"";
+				DEVELOPMENT_TEAM = L2ZCCHBZ28;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DevAcademy/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Prosím povolte nám polohu pro lepší výsledky :-)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -488,8 +513,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DevAcademy/Preview Content\"";
+				DEVELOPMENT_TEAM = L2ZCCHBZ28;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DevAcademy/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Prosím povolte nám polohu pro lepší výsledky :-)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

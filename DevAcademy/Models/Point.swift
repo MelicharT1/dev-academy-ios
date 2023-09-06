@@ -5,7 +5,7 @@
 //  Created by Tomáš Melichar on 18.07.2023.
 //
 
-import Foundation
+import CoreLocation
 
 struct Point: Codable {
     /// as Y value
@@ -16,5 +16,12 @@ struct Point: Codable {
     enum CodingKeys: String, CodingKey {
         case longitude = "x"
         case latitude = "y"
+    }
+}
+
+// CLLocation from Point
+extension Point {
+    var cllocation: CLLocation {
+        .init(latitude: latitude, longitude: longitude)
     }
 }

@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 final class PlacesObservableObject: ObservableObject {
     @Published var places = [Place]()
     
     private let placesService: PlacesService
+    private var lastUpdatedLocation: CLLocation?
+    private let userLocationService: UserLocationService
     
     private(set) var favorites: [Int]? {
         get { (UserDefaults.standard.array(forKey: "favourites") ?? []) as? [Int] }
@@ -26,8 +29,17 @@ final class PlacesObservableObject: ObservableObject {
         }
     }
     
-    init(placesService: PlacesService) {
+    init(placesService: PlacesService, userLocationService: UserLocationService) {
         self.placesService = placesService
+        self.userLocationService = userLocationService
+        
+        self.userLocationService.listenDidUpdateLocation { [weak self] location in
+            DispatchQueue.main.async {
+                self?.locationDidUpdate(location: location)
+            }
+        }
+        
+        handleStatus()
     }
     
     func fetchData() {
@@ -52,6 +64,21 @@ final class PlacesObservableObject: ObservableObject {
     }
     
     func updatePlaces() {
+        var regularPlaces = places
+        
+        if let lastUpdatedLocation {
+            regularPlaces.sort { lPlace, rPlace in
+                guard let rPoint = rPlace.geometry?.cllocation else {
+                    return false
+                }
+                guard let lPoint = lPlace.geometry?.cllocation else {
+                    return true
+                }
+                
+                return lastUpdatedLocation.distance(from: lPoint).magnitude < lastUpdatedLocation.distance(from: rPoint).magnitude
+            }
+        }
+        
         var newPlaces = places
         guard let favorites = favorites else { return }
         
@@ -79,4 +106,32 @@ final class PlacesObservableObject: ObservableObject {
             print(error)
         }
     }
+}
+
+extension PlacesObservableObject {
+    private func handleStatus() {
+        self.userLocationService.listenDidUpdateStatus { [weak self] status in
+            switch status {
+            case .notDetermined:
+                self?.userLocationService.requestAuthorization()
+            case .authorizedWhenInUse, .authorizedAlways:
+                self?.beginLocationUpdates()
+            default: break
+            }
+        }
+    }
+    
+    private func shouldUpdate(location: CLLocation) -> Bool {
+            lastUpdatedLocation.flatMap { $0.distance(from: location).magnitude > 500 } ?? true
+        }
+        
+        private func beginLocationUpdates() {
+            self.userLocationService.startUpdatingLocation()
+        }
+        
+        private func locationDidUpdate(location: [CLLocation]) {
+            guard let userLocation = location.first, shouldUpdate(location: userLocation) else { return }
+            self.lastUpdatedLocation = userLocation
+            updatePlaces()
+        }
 }
