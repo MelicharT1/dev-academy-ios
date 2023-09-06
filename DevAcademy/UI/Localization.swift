@@ -24,6 +24,11 @@ public enum Localization {
         public static var allow: String = {
             NSLocalizedString("Povoleno ", comment: "")
         }()
+        
+        /// Vyhledat z COOLtůr mapy
+        public static var searchTitle: String = {
+            NSLocalizedString("Vyhledat z COOLtůr mapy ", comment: "")
+        }()
     }
     
     // MARK: - PlaceDetail

@@ -62,12 +62,24 @@ struct PlacesSceneView: View {
     }
     
     private var listSection: some View {
-        List(viewState.places, id: \.attributes.ogcFid) { place in
-            NavigationLink(destination: coordinator.makeDetailView(for: place)) {
-                PlacesRow(place: place)
+        VStack {
+            TextField(Localization.Common.searchTitle, text: viewState.$searchText)
+                .padding()
+            
+            List(
+                viewState.places.filter {
+                    viewState.searchText.isEmpty
+                        ? true
+                        : $0.attributes.name.localizedCaseInsensitiveContains(viewState.searchText)
+                },
+                id: \.attributes.ogcFid
+            ) { place in
+                NavigationLink(destination: coordinator.makeDetailView(for: place)) {
+                    PlacesRow(place: place)
+                }
             }
+            .cornerRadius(30)
         }
-        .cornerRadius(30)
     }
     
     /// Toolbar button

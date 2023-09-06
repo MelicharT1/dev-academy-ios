@@ -12,6 +12,7 @@ struct PlacesSceneViewState: DynamicProperty {
     @EnvironmentObject private var placesObject: PlacesObservableObject
     
     @State var showFavorites: Bool = false
+    @State var searchText: String = ""
     
     let navigationTitle: String = Localization.ViewTitles.menuTitle
     
