@@ -13,16 +13,16 @@ final class Coordinator: ObservableObject {
     var placesScene: some View {
         PlacesSceneView()
     }
-    
-    /// FavoriteScene
-    var favoriteScene: some View {
-        Text("ouuuu.. něco tu chybí")
-    }
 }
 
 // MARK: - Make Views with parameter (func)
 extension Coordinator {
     func makeDetailView(for place: Place) -> some View {
         PlaceDetailView(viewState: .init(place: place))
+    }
+    
+    /// FavoriteScene
+    func favoriteScene(places: [Place]) -> some View {
+        FavoriteSceneView(viewState: .init(places: places))
     }
 }

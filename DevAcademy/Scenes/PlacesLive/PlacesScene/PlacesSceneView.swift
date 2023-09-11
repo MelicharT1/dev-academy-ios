@@ -47,9 +47,8 @@ struct PlacesSceneView: View {
     
     /// Content for sheet
     private var sheetContent: some View {
-        coordinator.favoriteScene
+        coordinator.favoriteScene(places: viewState.favorites)
             .presentationDetents([.medium, .large])
-            .presentationDragIndicator(.visible)
     }
 }
 
