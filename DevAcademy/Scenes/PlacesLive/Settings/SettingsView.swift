@@ -19,6 +19,9 @@ struct SettingsView: View {
                         
                         Text(Localization.Common.disable).tag(SettingsPickerValue.off)
                     }
+                    .onChange(of: viewState.selectedSettingsCornerRadius) { value in
+                        AppData.hasCornerRadius = value == .on ? true : false
+                    }
                 }
             }
             
@@ -27,6 +30,9 @@ struct SettingsView: View {
                     Text(Localization.Common.allow).tag(SettingsPickerValue.on)
                     
                     Text(Localization.Common.disable).tag(SettingsPickerValue.off)
+                }
+                .onChange(of: viewState.selectedSettingsMapSection) { value in
+                    AppData.hasMapSection = value == .on ? true : false
                 }
             }
         }

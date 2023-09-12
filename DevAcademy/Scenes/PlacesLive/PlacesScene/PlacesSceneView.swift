@@ -56,7 +56,7 @@ struct PlacesSceneView: View {
                 annotationItems: viewState.placesCoordinator) { location in
                     MapMarker(coordinate: location.coordinate, tint: .red)
                 }
-                .cornerRadius(30)
+                .modifier(CornerRadius(value: 30))
                 .padding()
         }
     }
@@ -78,7 +78,7 @@ struct PlacesSceneView: View {
                     PlacesRow(place: place)
                 }
             }
-            .cornerRadius(30)
+            .modifier(CornerRadius(value: 30))
         }
     }
     
@@ -89,7 +89,7 @@ struct PlacesSceneView: View {
                 Image(systemName: "star")
             }
 
-            NavigationLink(destination: coordinator.settingScene) {
+            NavigationLink(destination: coordinator.setting) {
                 Image(systemName: "gear")
             }
         }
@@ -97,9 +97,8 @@ struct PlacesSceneView: View {
     
     /// Content for sheet
     private var sheetContent: some View {
-        coordinator.favoriteScene
+        coordinator.favoriteScene(places: viewState.favorites)
             .presentationDetents([.medium, .large])
-            .presentationDragIndicator(.visible)
     }
 }
 

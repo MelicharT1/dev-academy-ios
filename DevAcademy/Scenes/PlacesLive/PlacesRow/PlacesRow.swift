@@ -21,15 +21,17 @@ struct PlacesRow: View {
     
     /// Image view (with AsyncImage
     private var imageView: some View {
-        AsyncImage(url: place.attributes.imageURL) { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 60, height: 60)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .shadow(radius: 4)
-        } placeholder: {
-            ProgressView()
+        place.attributes.imageURL.map {
+            StoredAsyncImage(url: $0) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 60, height: 60)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .shadow(radius: 4)
+            } placeholder: {
+                ProgressView()
+            }
         }
     }
     

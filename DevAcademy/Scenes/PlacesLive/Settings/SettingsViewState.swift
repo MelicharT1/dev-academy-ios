@@ -15,8 +15,7 @@ enum SettingsPickerValue: String, CaseIterable, Identifiable {
 struct SettingsViewState: DynamicProperty {
     let navigationTitle: String = Localization.ViewTitles.settingsTitle
     
-    // TODO: po změně uložit do userdefaults (barvu i cornerradius)
-    @State var selectedSettingsCornerRadius: SettingsPickerValue = .on
-    @State var selectedSettingsMapSection: SettingsPickerValue = .on
+    @State var selectedSettingsCornerRadius: SettingsPickerValue = AppData.hasCornerRadius ? .on : .off
+    @State var selectedSettingsMapSection: SettingsPickerValue = AppData.hasMapSection ? .on : .off
     
 }

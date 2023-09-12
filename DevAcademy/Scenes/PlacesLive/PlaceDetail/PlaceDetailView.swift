@@ -47,7 +47,19 @@ struct PlaceDetailView: View {
             
             Spacer()
             
-            mapSection
+            if AppData.hasMapSection { mapSection }
+            
+            Button {
+                viewState.isFavorite.wrappedValue.toggle()
+            } label: {
+                Image(systemName: viewState.isFavorite.wrappedValue ? "heart.fill" : "heart")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .scaledToFit()
+                    .padding()
+                    .background(.thinMaterial)
+                    .modifier(CornerRadius(value: 30))
+            }
         }
     }
     
@@ -83,7 +95,7 @@ struct PlaceDetailView: View {
         .padding(.horizontal)
         .frame(width: 120, height: 40)
         .background(.ultraThickMaterial)
-        .cornerRadius(10)
+        .modifier(CornerRadius(value: 10))
         .shadow(color: .black, radius: 0.7)
     }
 }

@@ -10,7 +10,18 @@ import SwiftUI
 import MapKit
 
 struct PlaceDetailViewState: DynamicProperty {
+    @EnvironmentObject private var placesObservable: PlacesObservableObject
+    
     let place: Place
+    
+    var isFavorite: Binding<Bool> {
+        Binding(
+            get: { placesObservable.isFavorite(place: place) },
+            set: { newValue in
+                placesObservable.set(place: place, favorite: newValue)
+            }
+        )
+    }
     
     init(place: Place) {
         self.place = place

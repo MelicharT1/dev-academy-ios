@@ -46,6 +46,15 @@ struct PlacesSceneViewState: DynamicProperty {
         placesObject.places
     }
     
+    var favorites: [Place] {
+        placesObject.places.filter { place in
+            if let favoritePlaces = placesObject.favorites {
+                return favoritePlaces.contains {$0 == place.attributes.ogcFid }
+            }
+            return false
+        }
+    }
+    
     func favoritePressed() {
         showFavorites.toggle()
     }
