@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 import ActivityIndicatorView
 
 struct PlacesSceneView: View {
@@ -17,11 +18,12 @@ struct PlacesSceneView: View {
         NavigationStack {
             Group {
                 if viewState.isPlaceEmpty {
-                    List(viewState.places, id: \.attributes.ogcFid) { place in
-                        NavigationLink(destination: coordinator.makeDetailView(for: place)) {
-                            PlacesRow(place: place)
-                        }
+                    TabView {
+                        listSection
+                        mapSection
                     }
+                    .tabViewStyle(.page)
+                    .indexViewStyle(.page(backgroundDisplayMode: .always))
                 } else {
                     ActivityIndicatorView(isVisible: .constant(true), type: .growingCircle)
                         .frame(width: 30)
@@ -40,9 +42,57 @@ struct PlacesSceneView: View {
         .sheet(isPresented: viewState.$showFavorites) { sheetContent }
     }
     
+    private var mapSection: some View {
+        VStack(spacing: Spacings.zero) {
+            Text(Localization.Common.brnoCity)
+                .bold()
+                .underline()
+            Map(
+                coordinateRegion: .constant(MKCoordinateRegion(
+                    center: viewState.coordinate,
+                    span: viewState.span
+                )),
+                showsUserLocation: true,
+                annotationItems: viewState.placesCoordinator) { location in
+                    MapMarker(coordinate: location.coordinate, tint: .red)
+                }
+                .modifier(CornerRadius(value: 30))
+                .padding()
+        }
+    }
+    
+    private var listSection: some View {
+        VStack {
+            TextField(Localization.Common.searchTitle, text: viewState.$searchText)
+                .padding()
+            
+            List(
+                viewState.places.filter {
+                    viewState.searchText.isEmpty
+                        ? true
+                        : $0.attributes.name.localizedCaseInsensitiveContains(viewState.searchText)
+                },
+                id: \.attributes.ogcFid
+            ) { place in
+                NavigationLink(destination: coordinator.makeDetailView(for: place)) {
+                    PlacesRow(place: place)
+                }
+            }
+            .modifier(CornerRadius(value: 30))
+        }
+    }
+    
     /// Toolbar button
     private var toolbarButton: some View {
-        Button("Oblíbené", action: viewState.favoritePressed)
+        HStack {
+            Button(action: viewState.favoritePressed) {
+                Image(systemName: "star")
+            }
+
+            NavigationLink(destination: coordinator.setting) {
+                Image(systemName: "gear")
+            }
+        }
     }
     
     /// Content for sheet
@@ -56,6 +106,7 @@ struct PlacesSceneView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             PlacesSceneView()
+                .injectPreviewsEnvironment()
         }
     }
 }

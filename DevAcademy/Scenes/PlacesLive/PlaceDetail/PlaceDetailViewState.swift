@@ -28,12 +28,32 @@ struct PlaceDetailViewState: DynamicProperty {
     }
     
     /// Map coordinate
-    var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: place.geometry?.latitude ?? 0, longitude: place.geometry?.longitude ?? 0)
+    var coordinate: CLLocationCoordinate2D? {
+        place.geometry.map {
+            CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
+        }
     }
     
     /// Map span
     var span: MKCoordinateSpan {
         MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+    }
+    
+    func didTapCall() {
+        if let phone = place.attributes.phoneNumber {
+            URL.didTapCall(number: phone)
+        }
+    }
+    
+    func didTapOpenLink() {
+        if let website = place.attributes.website, let url = URL(string: website) {
+            URL.didTapOpenLink(for: url)
+        }
+    }
+    
+    func didTapOpenNavigation() {
+        guard let coordinate = coordinate else { return }
+        
+        URL.didTapOpenNavigation(for: coordinate)
     }
 }

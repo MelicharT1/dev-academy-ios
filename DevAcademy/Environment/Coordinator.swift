@@ -21,6 +21,9 @@ extension Coordinator {
         PlaceDetailView(viewState: .init(place: place))
     }
     
+    func setting() -> some View {
+        SettingsView()
+    }
     /// FavoriteScene
     func favoriteScene(places: [Place]) -> some View {
         FavoriteSceneView(viewState: .init(places: places))
